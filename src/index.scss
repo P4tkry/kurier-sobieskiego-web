@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Ropa+Sans&display=swap');
+@import 'material-icons/iconfont/material-icons.scss';
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import 'material-symbols';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48;
+}
+
+body {
+    font-family: 'Ropa Sans', sans-serif;
+    background-color: #171717;
+}
+
+h1, h2, h3, h4, h5, h6{
+    font-family: "Times New Roman", Times, serif;
+}
+
+.hover-text{
+    position: relative;
+    display: inline-block;
+    &:after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        transform: scaleX(0);
+        bottom: 0;
+        left: 0;
+        background-color: white;
+        transition: all 0.25s ease-out ;
+    }
+    &:hover:after{
+        transform: scaleX(100%);
+    }
+
+}
+
+.title-hover{
+    @apply hover:brightness-200
+}
+
+.margin{
+    @apply xl:mx-80 lg:mx-52 md:mx-36 mx-2;
+}
+.btn{
+    @apply px-2 py-1 hover:ring-2 rounded
+}
