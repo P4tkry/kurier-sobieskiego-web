@@ -45,7 +45,7 @@ export default function Home(){
                 </div>
             </div>
 
-            <div className={'margin'}>
+            <div className={'margin flex flex-col'}>
                 {
                     articles.map((article, index) =>{
                         return(

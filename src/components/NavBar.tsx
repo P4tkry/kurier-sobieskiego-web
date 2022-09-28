@@ -7,7 +7,7 @@ export default function NavBar(props: {logged: boolean, logout: ()=>void}) {
         <nav className={'w-full flex items-center pt-1 pb-3 gap-1 flex-col border-b border-white'}>
             <h2 className={'text-2xl text-center'}>KURIER SOBIESKIEGO</h2>
 
-            <div className={'flex font-ropa-sans text-sm text-center flex-col sm:flex-row gap-2 sm:gap-0'}>
+            <div className={'flex font-times-new-roman text-sm text-center flex-col sm:flex-row gap-2 sm:gap-0'}>
 
                 <div className={'px-2 sm:border-r sm:border-l border-white/50'}>
                     <Link to={'/'} className={'hover-text'}>
@@ -32,6 +32,12 @@ export default function NavBar(props: {logged: boolean, logout: ()=>void}) {
                 <div className={'px-2 sm:border-r border-white/50'}>
                     <Link to={'/kontakt'} className={'hover-text'}>
                         KONTAKT
+                    </Link>
+                </div>
+
+                <div className={'px-2 sm:border-r border-white/50'}>
+                    <Link to={'/teksty'} className={'hover-text'}>
+                        TEKSTY
                     </Link>
                 </div>
 

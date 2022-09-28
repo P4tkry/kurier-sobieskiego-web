@@ -34,7 +34,7 @@ function App() {
               }
 
               {
-                  logged && <Route path="/adminPanel" element={<AdminPanel />} />
+                  logged && <Route path="/adminPanel/*" element={<AdminPanel />} />
               }
           </Routes>
       </div>
