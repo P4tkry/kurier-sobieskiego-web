@@ -1,51 +1,68 @@
 import {IArticle} from "../../models";
 import {Link} from "react-router-dom";
 import api from "../../utils/api";
+import he from "he";
+import stripTags from "striptags";
+import dateFormatter from "../../utils/dateFormatter";
+
 function removeHTML(data: string) {
-    return data.replaceAll(/(<([^>]+)>)/ig, '');
+    return he.decode(stripTags(data))
 }
 
-export default function AdminArticle(props: {article: IArticle, index: number, reFetchArticles: ()=>void}) {
-    async function removeArticle(){
+export default function AdminArticle(props: { article: IArticle, index: number, reFetchArticles: () => void }) {
+    async function removeArticle() {
         const response = await api.delete(`articles/${props.article._id}`);
-        if(response.ok)
+        if (response.ok)
             props.reFetchArticles();
     }
+
     return (
-        <div className={'flex flex-wrap lg:flex-nowrap w-full'} key={`article-${props.article._id}`}>
-            <img src={props.article.thumbnail} className={'object-cover h-[200px] w-full lg:h-auto lg:w-[200px] rounded-t lg:rounded-r-none lg:rounded-l '}/>
-            <div
-                className={' py-3 px-4 border-l lg:border-l-0 border-r lg:border-t border-b border-neutral-700 rounded-b lg:rounded-r lg:rounded-l-none flex flex-col bg-neutral-800 w-full'}>
-                <h1 className={'text-2xl pb-1'}>
+        <div
+            className={`flex flex-wrap bg-neutral-800 sm:flex-nowrap w-full hover:shadow-neutral-800 hover:shadow-lg rounded`}
+            key={`article-${props.index}`}>
+            <img src={props.article.thumbnail} className={'object-cover h-[250px] w-[350px] rounded-l '}/>
+            <div className={' py-3 px-4 border-r border-t border-b border-neutral-700 rounded-r flex flex-col w-full'}>
+                <p className={'font-ropa-sans text-sm mb-1 text-neutral-300'}>
                     {
-                        props.article.title
+                        props.article.author
                     }
-                </h1>
+                    {
+                        ", "
+                    }
+                    <span className={'text-neutral-400'}>
+                        {
+                            dateFormatter(new Date(parseInt(props.article._id.substring(0, 8), 16) * 1000))
+                        }
+                    </span>
+                </p>
+
+                <h3 className={'text-3xl cursor-pointer mb-1'}>{props.article.title}</h3>
 
                 <p className={'text-sm'}>
                     {
-                        removeHTML(props.article.content).slice(0, 120)
+                        removeHTML(props.article.content).slice(0, 200)
                     }
                     {
-                        removeHTML(props.article.content).length > 120 && '...'
+                        removeHTML(props.article.content).length > 200 && "..."
                     }
                 </p>
-                <div className={'flex gap-2 pt-2 flex-wrap'}>
-                    {
-                        props.article.tags.map((tag, index) => {
-                            return (
-                                <div className={'bg-neutral-600 text-xs px-1 py-0.5 rounded'} key={`tag-${index}`}>
-                                    {
-                                        tag
-                                    }
-                                </div>
-                            )
-                        })
-                    }
+
+                <div className={'mt-auto mb-auto flex gap-1 items-center text-neutral-400'}>
+                    <span className="material-symbols-outlined">
+                        schedule
+                    </span>
+                    <p>
+                        {
+                            Math.ceil(removeHTML(props.article.content).split(" ").length / 200)
+                        }
+                        {
+                            Math.ceil(removeHTML(props.article.content).split(" ").length / 200) === 1 ? " minuta czytania" : Math.ceil(removeHTML(props.article.content).split(" ").length / 200) > 4 ? " minut czytania" : "minuty czytania"
+                        }
+                    </p>
+
                 </div>
 
-                <div className={'flex gap-2 mt-2 flex gap-2 ml-auto'}>
-
+                <div className={'flex gap-2 justify-end'}>
                     <Link to={`edit/${props.article._id}`}>
                         <button className={'btn flex gap-1 items-center bg-sky-600 ring-sky-300'}>
                             <span className="material-icons-outlined">
@@ -63,7 +80,19 @@ export default function AdminArticle(props: {article: IArticle, index: number, r
                     </button>
                 </div>
 
-
+                <div className={'flex gap-2 mb-2 flex-wrap mt-auto'}>
+                    {
+                        props.article.tags.map((tag, index) => {
+                            return (
+                                <div className={'text-xs px-2 py-0.5 rounded bg-neutral-600 font-ropa-sans'}>
+                                    {
+                                        tag
+                                    }
+                                </div>
+                            )
+                        })
+                    }
+                </div>
             </div>
         </div>
     )

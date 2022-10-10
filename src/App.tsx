@@ -8,6 +8,7 @@ import Login from "./pages/Login";
 import cookies from "./utils/cookies";
 import AdminPanel from "./pages/AdminPanel";
 import Archive from "./pages/Archive";
+import Articles from "./pages/Articles";
 
 function App() {
     const [logged, setLogged]= useState<boolean>(false);
@@ -29,6 +30,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/article/:articleId" element={<Article />} />
               <Route path="/archiwum" element={<Archive />} />
+              <Route path="/teksty" element={<Articles />} />
               {
                   !logged && <Route path="/login" element={<Login login={()=>setLogged(true)}/>} />
               }
