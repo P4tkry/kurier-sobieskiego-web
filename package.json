@@ -16,6 +16,7 @@
     "eslint": "8.22.0",
     "formik": "^2.2.9",
     "he": "^1.2.0",
+    "logrocket": "^3.0.1",
     "material-icons": "^1.11.11",
     "material-symbols": "^0.2.11",
     "react": "^18.2.0",

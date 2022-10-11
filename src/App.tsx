@@ -9,12 +9,15 @@ import cookies from "./utils/cookies";
 import AdminPanel from "./pages/AdminPanel";
 import Archive from "./pages/Archive";
 import Articles from "./pages/Articles";
+import Editors from "./pages/Editors";
+import LogRocket from "logrocket";
 
 function App() {
     const [logged, setLogged]= useState<boolean>(false);
     const navigate = useNavigate()
 
     useEffect(() =>{
+        LogRocket.init('kurier-sobieskiego/kurier');
         const auth = cookies.get('auth');
         if(auth)
             setLogged(true);
@@ -31,6 +34,7 @@ function App() {
               <Route path="/article/:articleId" element={<Article />} />
               <Route path="/archiwum" element={<Archive />} />
               <Route path="/teksty" element={<Articles />} />
+              <Route path="/redakcja" element={<Editors />} />
               {
                   !logged && <Route path="/login" element={<Login login={()=>setLogged(true)}/>} />
               }
