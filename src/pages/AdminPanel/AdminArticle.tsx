@@ -36,14 +36,18 @@ export default function AdminArticle(props: { article: IArticle, index: number, 
                     </span>
                 </p>
 
-                <h3 className={'text-3xl cursor-pointer mb-1'}>{props.article.title}</h3>
+                <h3 className={'text-3xl cursor-pointer mb-1 uppercase'}>
+                    {
+                        props.article.title.split(' ').slice(0,5).join(' ')
+                    }
+                    {
+                        props.article.title.split(' ').length > 5 && "..."
+                    }
+                </h3>
 
                 <p className={'text-sm'}>
                     {
-                        removeHTML(props.article.content).slice(0, 200)
-                    }
-                    {
-                        removeHTML(props.article.content).length > 200 && "..."
+                       props.article.description
                     }
                 </p>
 

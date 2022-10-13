@@ -34,6 +34,7 @@ export default function EditArticle(props: { type: 'create' | 'edit' }) {
                 article !== undefined && <Formik
                 validationSchema={Yup.object({
                     title: Yup.string().required('Wypełnij to pole'),
+                    description: Yup.string().required('Wypełnij to pole'),
                     content: Yup.string().required('Wypełnij to pole'),
                     author: Yup.string().required('Wypełnij to pole'),
                 })}
@@ -42,11 +43,13 @@ export default function EditArticle(props: { type: 'create' | 'edit' }) {
                         author: article?.author,
                         content: article?.content,
                         tags: article?.tags,
+                        description: article?.description,
                         title: article?.title,
                         thumbnail: article?.thumbnail
                     } : {
                         author: '',
                         content: '',
+                        description: '',
                         tags: [],
                         title: '',
                         thumbnail: ''
@@ -75,6 +78,7 @@ export default function EditArticle(props: { type: 'create' | 'edit' }) {
                             title: values.title,
                             content: values.content,
                             thumbnail: image,
+                            description: values.description,
                             author: values.author,
                             tags: values.tags,
                         };
@@ -107,6 +111,13 @@ export default function EditArticle(props: { type: 'create' | 'edit' }) {
                                             Autor
                                         </label>
                                         <Input type={'text'} name={'author'} formik={fProps} placeholder={'Autor'}/>
+                                    </div>
+
+                                    <div>
+                                        <label>
+                                            Opis
+                                        </label>
+                                        <Input type={'text'} name={'description'} formik={fProps} placeholder={'Opis'}/>
                                     </div>
 
                                 </div>

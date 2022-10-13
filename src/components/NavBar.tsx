@@ -33,12 +33,12 @@ export default function NavBar(props: { logged: boolean, logout: () => void }) {
                                 </Link>
                             </div>
 
-
                             <div className={'px-2 border-r border-white/50'}>
-                                <Link to={'/archiwum'} className={'hover-text'}>
-                                    ARCHIWUM
+                                <Link to={'/teksty'} className={'hover-text'}>
+                                    TEKSTY
                                 </Link>
                             </div>
+
 
                             <div className={'px-2 border-r border-white/50'}>
                                 <Link to={'/redakcja'} className={'hover-text'}>
@@ -46,16 +46,16 @@ export default function NavBar(props: { logged: boolean, logout: () => void }) {
                                 </Link>
                             </div>
 
+                            <div className={'px-2 border-r border-white/50'}>
+                                <Link to={'/archiwum'} className={'hover-text'}>
+                                    ARCHIWUM
+                                </Link>
+                            </div>
+
 
                             <div className={'px-2 border-r border-white/50'}>
                                 <Link to={'/kontakt'} className={'hover-text'}>
                                     KONTAKT
-                                </Link>
-                            </div>
-
-                            <div className={'px-2 border-r border-white/50'}>
-                                <Link to={'/teksty'} className={'hover-text'}>
-                                    TEKSTY
                                 </Link>
                             </div>
 
@@ -85,16 +85,22 @@ export default function NavBar(props: { logged: boolean, logout: () => void }) {
                                         </Link>
                                     </div>
 
+                                    <div className={'px-2 border-white/50 text-center'}>
+                                        <Link to={'/teksty'} className={'hover-text'}>
+                                            TEKSTY
+                                        </Link>
+                                    </div>
+
+                                    <div className={'px-2 border-r border-white/50'}>
+                                        <Link to={'/redakcja'} className={'hover-text'}>
+                                            REDAKCJA
+                                        </Link>
+                                    </div>
+
 
                                     <div className={'px-2 border-white/50 text-center'}>
                                         <Link to={'/archiwum'} className={'hover-text'}>
                                             ARCHIWUM
-                                        </Link>
-                                    </div>
-
-                                    <div className={'px-2 border-white/50 text-center'}>
-                                        <Link to={'/redakcja'} className={'hover-text'}>
-                                            REDAKCJA
                                         </Link>
                                     </div>
 
@@ -105,11 +111,6 @@ export default function NavBar(props: { logged: boolean, logout: () => void }) {
                                         </Link>
                                     </div>
 
-                                    <div className={'px-2 border-white/50 text-center'}>
-                                        <Link to={'/teksty'} className={'hover-text'}>
-                                            TEKSTY
-                                        </Link>
-                                    </div>
 
                                     {
                                         props.logged &&

@@ -5,16 +5,18 @@ import he from "he";
 import stripTags from "striptags";
 
 function removeHTML(data: string) {
-    return  he.decode(stripTags(data))
+    return he.decode(stripTags(data))
 }
 
 export default function ArticleBox(props: { article: IArticle, index: number, className?: string }) {
     return (
         <Link to={`/article/${props.article._id}`}>
-            <div className={`flex flex-wrap bg-neutral-800 sm:flex-nowrap w-full hover:shadow-neutral-800 hover:shadow-lg rounded ${props.className}`}
-                 key={`article-${props.index}`}>
-                <img src={props.article.thumbnail} className={'object-cover h-[250px] w-[350px] rounded-l '}/>
-                <div className={' py-3 px-4 border-r border-t border-b border-neutral-700 rounded-r flex flex-col w-full'}>
+            <div
+                className={`flex flex-wrap bg-neutral-800 sm:flex-nowrap w-full h-[210px] hover:shadow-neutral-800 hover:shadow-lg rounded ${props.className}`}
+                key={`article-${props.index}`}>
+                <img src={props.article.thumbnail} className={'object-cover w-[350px] rounded-l '}/>
+                <div
+                    className={' py-3 px-4 border-r border-t border-b border-neutral-700 rounded-r flex flex-col w-full'}>
                     <p className={'font-ropa-sans text-sm mb-1 text-neutral-300'}>
                         {
                             props.article.author
@@ -29,15 +31,20 @@ export default function ArticleBox(props: { article: IArticle, index: number, cl
                     </span>
                     </p>
 
-                    <h3 className={'text-3xl cursor-pointer mb-1'}>{props.article.title}</h3>
+                    <h3 className={'text-3xl cursor-pointer mb-1 uppercase'}>
+                        {
+                            props.article.title.split(' ').slice(0,5).join(' ')
+                        }
+                        {
+                            props.article.title.split(' ').length > 5 && "..."
+                        }
+                    </h3>
 
                     <p className={'text-sm'}>
                         {
-                            removeHTML(props.article.content).slice(0, 200)
+                            props.article.description
                         }
-                        {
-                            removeHTML(props.article.content).length > 200 && "..."
-                        }
+
                     </p>
 
                     <div className={'mt-auto mb-auto flex gap-1 items-center text-neutral-400'}>
@@ -49,7 +56,7 @@ export default function ArticleBox(props: { article: IArticle, index: number, cl
                                 Math.ceil(removeHTML(props.article.content).split(" ").length / 200)
                             }
                             {
-                                Math.ceil(removeHTML(props.article.content).split(" ").length / 200) === 1 ? " minuta czytania" :Math.ceil(removeHTML(props.article.content).split(" ").length / 200)>4? " minut czytania":"minuty czytania"
+                                Math.ceil(removeHTML(props.article.content).split(" ").length / 200) === 1 ? " minuta czytania" : Math.ceil(removeHTML(props.article.content).split(" ").length / 200) > 4 ? " minut czytania" : "minuty czytania"
                             }
                         </p>
 

@@ -38,7 +38,7 @@ export default function Article(){
                             }
                         </span>
                     </p>
-                    <h1 className={'font-ropa-sans text-3xl mb-2'}>
+                    <h1 className={'font-times-new-roman text-3xl mb-10'}>
                         {
                             article.content.title
                         }

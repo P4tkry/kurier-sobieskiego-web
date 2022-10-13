@@ -11,6 +11,7 @@ import Archive from "./pages/Archive";
 import Articles from "./pages/Articles";
 import Editors from "./pages/Editors";
 import LogRocket from "logrocket";
+import Contact from "./pages/Contact";
 
 function App() {
     const [logged, setLogged]= useState<boolean>(false);
@@ -35,6 +36,7 @@ function App() {
               <Route path="/archiwum" element={<Archive />} />
               <Route path="/teksty" element={<Articles />} />
               <Route path="/redakcja" element={<Editors />} />
+              <Route path="/kontakt" element={<Contact />} />
               {
                   !logged && <Route path="/login" element={<Login login={()=>setLogged(true)}/>} />
               }

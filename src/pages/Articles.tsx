@@ -7,7 +7,7 @@ import ArticleBox from "../components/ArticleBox";
 export default function Articles(){
     const [paging, setPaging] = useState<{page: number, pagesNumber: number}>({page: 1, pagesNumber: 1});
     const [articles, setArticles] = useState<IArticle[]>([]);
-    const [articlesType, setArticlesType ] = useState<"wywiad"|"naukowy"|"wszystkie">("wszystkie");
+    const [articlesType, setArticlesType ] = useState<"wywiad"|"sport"|"muzyka"|"książki"|"filmy"|"społeczne"|"ekologia"|"sztuka"|"historia"|"lifestyle"|"wszystkie">("wszystkie");
 
     async function getArticles() {
         const response = await api.get(`articles?page=${paging.page}&count=5&sortByDate=1${articlesType!=='wszystkie'?`&hasTag=${articlesType}`:''}`);
@@ -20,7 +20,7 @@ export default function Articles(){
 
     useEffect(() =>{
         getArticles();
-    },[articlesType]);
+    },[articlesType, paging.page]);
 
     return(
         <div className={'margin'}>
@@ -29,9 +29,43 @@ export default function Articles(){
                 <button className={`rounded-t-lg px-2 ring-gray-400 ${articlesType==='wywiad'&&'ring-2'}`} onClick={()=>setArticlesType("wywiad")}>
                     wywiady
                 </button>
-                <button className={`rounded-t-lg px-2 ring-gray-400 ${articlesType==='naukowy'&&'ring-2'}`} onClick={()=>setArticlesType("naukowy")}>
-                    naukowe
+
+                <button className={`rounded-t-lg px-2 ring-gray-400 ${articlesType==='sport'&&'ring-2'}`} onClick={()=>setArticlesType("sport")}>
+                    sport
                 </button>
+
+                <button className={`rounded-t-lg px-2 ring-gray-400 ${articlesType==='muzyka'&&'ring-2'}`} onClick={()=>setArticlesType("muzyka")}>
+                    muzyka
+                </button>
+
+                <button className={`rounded-t-lg px-2 ring-gray-400 ${articlesType==='książki'&&'ring-2'}`} onClick={()=>setArticlesType("książki")}>
+                    książki
+                </button>
+
+                <button className={`rounded-t-lg px-2 ring-gray-400 ${articlesType==='filmy'&&'ring-2'}`} onClick={()=>setArticlesType("filmy")}>
+                    filmy
+                </button>
+
+                <button className={`rounded-t-lg px-2 ring-gray-400 ${articlesType==='społeczne'&&'ring-2'}`} onClick={()=>setArticlesType("społeczne")}>
+                    społeczne
+                </button>
+
+                <button className={`rounded-t-lg px-2 ring-gray-400 ${articlesType==='ekologia'&&'ring-2'}`} onClick={()=>setArticlesType("ekologia")}>
+                    ekologia
+                </button>
+
+                <button className={`rounded-t-lg px-2 ring-gray-400 ${articlesType==='sztuka'&&'ring-2'}`} onClick={()=>setArticlesType("sztuka")}>
+                    sztuka
+                </button>
+
+                <button className={`rounded-t-lg px-2 ring-gray-400 ${articlesType==='historia'&&'ring-2'}`} onClick={()=>setArticlesType("historia")}>
+                    historia
+                </button>
+
+                <button className={`rounded-t-lg px-2 ring-gray-400 ${articlesType==='lifestyle'&&'ring-2'}`} onClick={()=>setArticlesType("lifestyle")}>
+                    lifestyle
+                </button>
+
                 <button className={`rounded-t-lg px-2 ring-gray-400 ${articlesType==='wszystkie'&&'ring-2'}`} onClick={()=>setArticlesType("wszystkie")}>
                     wszystkie
                 </button>
