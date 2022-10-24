@@ -34,7 +34,6 @@ export default function EditArticle(props: { type: 'create' | 'edit' }) {
                 article !== undefined && <Formik
                 validationSchema={Yup.object({
                     title: Yup.string().required('Wypełnij to pole'),
-                    description: Yup.string().required('Wypełnij to pole'),
                     content: Yup.string().required('Wypełnij to pole'),
                     author: Yup.string().required('Wypełnij to pole'),
                 })}
@@ -74,14 +73,15 @@ export default function EditArticle(props: { type: 'create' | 'edit' }) {
                         } else {
                             image = values.thumbnail;
                         }
-                        const news = {
+                        let news = {
                             title: values.title,
                             content: values.content,
                             thumbnail: image,
-                            description: values.description,
                             author: values.author,
                             tags: values.tags,
+                            description: values.description
                         };
+
                         if(props.type === 'edit' && article !== 'create'){
                             const response = await api.patch(`articles/${article?._id}`, {body: JSON.stringify(news)});
                             if(response.ok)

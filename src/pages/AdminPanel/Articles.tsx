@@ -12,7 +12,7 @@ export default function Articles(){
     const [articles, setArticles] = useState<IArticle[]>([]);
 
     async function getArticles() {
-        const response = await api.get(`articles?page=${paging.page}&count=5&sortByDate=1`);
+        const response = await api.get(`articles?page=${paging.page}&count=5&sortByDate=-1`);
         if (!response.ok)
             return
         const responseJSON = await response.json();
