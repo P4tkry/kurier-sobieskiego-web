@@ -53,12 +53,6 @@ export default function NavBar(props: { logged: boolean, logout: () => void }) {
                             </div>
 
 
-                            <div className={'px-2 border-r border-white/50'}>
-                                <Link to={'/kontakt'} className={'hover-text'}>
-                                    KONTAKT
-                                </Link>
-                            </div>
-
                             {
                                 props.logged &&
                                 <>
