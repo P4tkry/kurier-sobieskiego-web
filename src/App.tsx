@@ -10,7 +10,6 @@ import AdminPanel from "./pages/AdminPanel";
 import Archive from "./pages/Archive";
 import Articles from "./pages/Articles";
 import Editors from "./pages/Editors";
-import LogRocket from "logrocket";
 import Footer from "./components/Footer";
 
 function App() {
@@ -18,7 +17,6 @@ function App() {
     const navigate = useNavigate()
 
     useEffect(() =>{
-        LogRocket.init('kurier-sobieskiego/kurier');
         const auth = cookies.get('auth');
         if(auth)
             setLogged(true);
