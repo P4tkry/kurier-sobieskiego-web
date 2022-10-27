@@ -11,6 +11,7 @@ import Archive from "./pages/Archive";
 import Articles from "./pages/Articles";
 import Editors from "./pages/Editors";
 import LogRocket from "logrocket";
+import Footer from "./components/Footer";
 
 function App() {
     const [logged, setLogged]= useState<boolean>(false);
@@ -24,25 +25,28 @@ function App() {
     },[])
   return (
       <div className={'bg-neutral-900 text-white'}>
-          <NavBar logged={logged} logout={()=>{
-              cookies.remove('auth');
-              setLogged(false);
-              navigate('/');
-          }} />
-          <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/article/:articleId" element={<Article />} />
-              <Route path="/archiwum" element={<Archive />} />
-              <Route path="/teksty" element={<Articles />} />
-              <Route path="/redakcja" element={<Editors />} />
-              {
-                  !logged && <Route path="/login" element={<Login login={()=>setLogged(true)}/>} />
-              }
+          <div className={'min-h-[100vh]'}>
+              <NavBar logged={logged} logout={()=>{
+                  cookies.remove('auth');
+                  setLogged(false);
+                  navigate('/');
+              }} />
+              <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/article/:articleId" element={<Article />} />
+                  <Route path="/archiwum" element={<Archive />} />
+                  <Route path="/teksty/:type" element={<Articles />} />
+                  <Route path="/redakcja" element={<Editors />} />
+                  {
+                      !logged && <Route path="/login" element={<Login login={()=>setLogged(true)}/>} />
+                  }
 
-              {
-                  logged && <Route path="/adminPanel/*" element={<AdminPanel />} />
-              }
-          </Routes>
+                  {
+                      logged && <Route path="/adminPanel/*" element={<AdminPanel />} />
+                  }
+              </Routes>
+          </div>
+          <Footer />
       </div>
   );
 }
