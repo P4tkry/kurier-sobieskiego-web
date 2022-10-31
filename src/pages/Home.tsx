@@ -32,15 +32,15 @@ export default function Home(){
                         Kurier<br/><span className={'ml-0 sm:ml-8 md:ml-14'}>Sobieskiego</span>
                     </h1>
                     <h3 className={'text-xl sm:text-3xl mb-3 text-center'}>
-                        WARSZAWSKI DWUMIESIĘCZNIK MŁODZIEŻOWY
+                        PORTAL MŁODZIEŻOWY
                     </h3>
-                    <p className={'text-sm sm:text-base text-center'}>
-                        Dostarczamy najnowsze informacje kulturalne, muzyczne i filmowe.<br/>
-                        Piszemy o modzie i ochronie środowiska.<br/>
-                        Przedstawiamy aktualne wydarzenia społeczne i polityczne z nowego punktu widzenia.<br/>
-                        Rozmawiamy z oryginalnymi i ciekawymi ludźmi.<br/>
-                        Wszystko to w dopieszczonej i klimatycznej formie gazety.<br/>
-                        Niezmiennie dla was, od października 2019.<br/>
+                    <p className={'text-sm sm:text-base text-center font-times-new-roman'}>
+                        Dostarczamy najnowsze informacje kulturalne, muzyczne i filmowe.<br />
+                        Piszemy o modzie i ochronie środowiska.<br />
+                        Przedstawiamy aktualne wydarzenia społeczne i polityczne z nowego punktu widzenia.<br />
+                        Rozmawiamy z oryginalnymi i ciekawymi ludźmi.<br />
+                        Wszystko to dzięki młodzieży posiadających pasję do pisania.<br />
+                        Niezmiennie dla was, od października 2019 roku.<br />
                     </p>
                 </div>
             </div>
