@@ -19,7 +19,7 @@ export default function Archive(){
             <h1 className={'w-full text-5xl text-center uppercase'}>
                 Wszystkie wydania
             </h1>
-            <a href={'/archiwum/KS_04-05.2022.pdf'} target="_blank">
+            <a href={'/archive/KS_04-05.2022.pdf'} target="_blank">
                 <div className={'flex flex-col items-center text-2xl gap-1 w-60 sm:w-72'}>
                     <img src={KS_04_05_2022} alt={'okładka kuriera Sobieskiego'}/>
                     <p className={'text-center'}>
@@ -28,7 +28,7 @@ export default function Archive(){
                 </div>
             </a>
 
-            <a href={'/archiwum/KS_03.2022.pdf'} target="_blank">
+            <a href={'/archive/KS_03.2022.pdf'} target="_blank">
                 <div className={'flex flex-col items-center text-2xl gap-1 w-60 sm:w-72'}>
                     <img src={KS_03_2022} alt={'okładka kuriera Sobieskiego'}/>
                     <p className={'text-center'}>
@@ -37,7 +37,7 @@ export default function Archive(){
                 </div>
             </a>
 
-            <a href={'/archiwum/KS_11-12.2021.pdf'} target="_blank">
+            <a href={'/archive/KS_11-12.2021.pdf'} target="_blank">
                 <div className={'flex flex-col items-center text-2xl gap-1 w-60 sm:w-72'}>
                     <img src={KS_11_12_2021} alt={'okładka kuriera Sobieskiego'}/>
                     <p className={'text-center'}>
@@ -46,7 +46,7 @@ export default function Archive(){
                 </div>
             </a>
 
-            <a href={'/archiwum/KS_KFAS.2021.pdf'} target="_blank">
+            <a href={'/archive/KS_KFAS.2021.pdf'} target="_blank">
                 <div className={'flex flex-col items-center text-2xl gap-1 w-60 sm:w-72'}>
                     <img src={KS_KFAS_2021} alt={'okładka kuriera Sobieskiego'}/>
                     <div>
@@ -60,7 +60,7 @@ export default function Archive(){
                 </div>
             </a>
 
-            <a href={'/archiwum/KS_09-10.2021.pdf'} target="_blank">
+            <a href={'/archive/KS_09-10.2021.pdf'} target="_blank">
                 <div className={'flex flex-col items-center text-2xl gap-1 w-60 sm:w-72'}>
                     <img src={KS_09_10_2021} alt={'okładka kuriera Sobieskiego'}/>
                     <p className={'text-center'}>
@@ -69,7 +69,7 @@ export default function Archive(){
                 </div>
             </a>
 
-            <a href={'/archiwum/KS_30lat.2021.pdf'} target="_blank">
+            <a href={'/archive/KS_30lat.2021.pdf'} target="_blank">
                 <div className={'flex flex-col items-center text-2xl gap-1 w-60 sm:w-72'}>
                     <img src={KS_30lat_2021} alt={'okładka kuriera Sobieskiego'}/>
                     <div>
@@ -83,7 +83,7 @@ export default function Archive(){
                 </div>
             </a>
 
-            <a href={'/archiwum/KS_wakacje.2021.pdf'} target="_blank">
+            <a href={'/archive/KS_wakacje.2021.pdf'} target="_blank">
                 <div className={'flex flex-col items-center text-2xl gap-1 w-60 sm:w-72'}>
                     <img src={KS_wakacje_2021} alt={'okładka kuriera Sobieskiego'}/>
                     <div>
@@ -97,7 +97,7 @@ export default function Archive(){
                 </div>
             </a>
 
-            <a href={'/archiwum/KS_05-06.2021.pdf'} target="_blank">
+            <a href={'/archive/KS_05-06.2021.pdf'} target="_blank">
                 <div className={'flex flex-col items-center text-2xl gap-1 w-60 sm:w-72'}>
                     <img src={KS_05_06_2021} alt={'okładka kuriera Sobieskiego'}/>
                     <p className={'text-center'}>
@@ -106,7 +106,7 @@ export default function Archive(){
                 </div>
             </a>
 
-            <a href={'/archiwum/KS_03-04.2021.pdf'} target="_blank">
+            <a href={'/archive/KS_03-04.2021.pdf'} target="_blank">
                 <div className={'flex flex-col items-center text-2xl gap-1 w-60 sm:w-72'}>
                     <img src={KS_03_04_2021} alt={'okładka kuriera Sobieskiego'}/>
                     <p className={'text-center'}>
@@ -115,7 +115,7 @@ export default function Archive(){
                 </div>
             </a>
 
-            <a href={'/archiwum/KS_12-01.2021.pdf'} target="_blank">
+            <a href={'/archive/KS_12-01.2021.pdf'} target="_blank">
                 <div className={'flex flex-col items-center text-2xl gap-1 w-60 sm:w-72'}>
                     <img src={KS_12_01_2021} alt={'okładka kuriera Sobieskiego'}/>
                     <p className={'text-center'}>
@@ -124,7 +124,7 @@ export default function Archive(){
                 </div>
             </a>
 
-            <a href={'/archiwum/KS_10-11.2020.pdf'} target="_blank">
+            <a href={'/archive/KS_10-11.2020.pdf'} target="_blank">
                 <div className={'flex flex-col items-center text-2xl gap-1 w-60 sm:w-72'}>
                     <img src={KS_10_11_2020} alt={'okładka kuriera Sobieskiego'}/>
                     <p className={'text-center'}>
@@ -133,7 +133,7 @@ export default function Archive(){
                 </div>
             </a>
 
-            <a href={'/archiwum/KS_05-06.2020.pdf'} target="_blank">
+            <a href={'/archive/KS_05-06.2020.pdf'} target="_blank">
                 <div className={'flex flex-col items-center text-2xl gap-1 w-60 sm:w-72'}>
                     <img src={KS_05_06_2020} alt={'okładka kuriera Sobieskiego'}/>
                     <p className={'text-center'}>
@@ -142,7 +142,7 @@ export default function Archive(){
                 </div>
             </a>
 
-            <a href={'/archiwum/KS_03-04.2020.pdf'} target="_blank">
+            <a href={'/archive/KS_03-04.2020.pdf'} target="_blank">
                 <div className={'flex flex-col items-center text-2xl gap-1 w-60 sm:w-72'}>
                     <img src={KS_03_04_2020} alt={'okładka kuriera Sobieskiego'}/>
                     <p className={'text-center'}>
@@ -151,7 +151,7 @@ export default function Archive(){
                 </div>
             </a>
 
-            <a href={'/archiwum/KS_12-01.2020.pdf'} target="_blank">
+            <a href={'/archive/KS_12-01.2020.pdf'} target="_blank">
                 <div className={'flex flex-col items-center text-2xl gap-1 w-60 sm:w-72'}>
                     <img src={KS_12_01_2020} alt={'okładka kuriera Sobieskiego'}/>
                     <p className={'text-center'}>
@@ -160,7 +160,7 @@ export default function Archive(){
                 </div>
             </a>
 
-            <a href={'/archiwum/KS_10_11.2019.pdf'} target="_blank">
+            <a href={'/archive/KS_10_11.2019.pdf'} target="_blank">
                 <div className={'flex flex-col items-center text-2xl gap-1 w-60 sm:w-72'}>
                     <img src={KS_10_11_2019} alt={'okładka kuriera Sobieskiego'}/>
                     <p className={'text-center'}>
