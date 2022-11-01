@@ -156,7 +156,7 @@ export default function Editors() {
                 <StandardEditor image={OldEditor5} name={"Bacha"} surname={"Skorupska"} role={'typesetting master'}/>
                 <StandardEditor image={OldEditor18} name={"Stanisław"} surname={"Klarecki"} role={'koordynator ds. social mediów'}/>
             </div>
-            <div className={'flex justify-center gap-4 flex-wrap'}>
+            <div className={'flex justify-center gap-4 flex-wrap margin'}>
                 <StandardEditor image={OldEditor2} name={"Alicja"} surname={"Nowak"}/>
                 <StandardEditor image={OldEditor3} name={"Amelia"} surname={"Bilińska"}/>
                 <StandardEditor image={OldEditor4} name={"Amelia"} surname={"Skrzypczak"}/>
