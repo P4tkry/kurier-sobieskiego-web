@@ -101,7 +101,7 @@ export default function Archive(){
                 <div className={'flex flex-col items-center text-2xl gap-1 w-60 sm:w-72'}>
                     <img src={KS_05_06_2021} alt={'okładka kuriera Sobieskiego'}/>
                     <p className={'text-center'}>
-                        Maj/Czerweic 2021
+                        Maj/Czerwiec 2021
                     </p>
                 </div>
             </a>

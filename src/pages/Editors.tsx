@@ -127,7 +127,7 @@ export default function Editors() {
                 <Editor name={'prof. Dorota'} surname={'Sech'} role={'korekta, wsparcie merytoryczne'} image={Editor4}/>
 
                 <Editor name={'Janek'} surname={'Wyrzykowski'}
-                        role={'były redaktor naczelny'} image={Editor2}/>
+                        role={'były redaktor, udaje że coś robi, pajacuje'} image={Editor2}/>
 
 
             </div>
@@ -150,13 +150,13 @@ export default function Editors() {
             <h1 className={'text-center text-3xl my-5 uppercase'}>
                 Byli Redaktorzy
             </h1>
-            <div className={'flex justify-center gap-4 flex-wrap margin mb-4'}>
+            <div className={'flex justify-center gap-4 flex-wrap mb-4'}>
                 <StandardEditor image={OldEditor1} name={"Aleksy"} surname={"Jakubiec"} role={'ojciec założyciel'}/>
                 <StandardEditor image={OldEditor12} name={"Maria"} surname={"Ludwisiak"} role={'pierwsza redaktor naczelna'}/>
                 <StandardEditor image={OldEditor5} name={"Bacha"} surname={"Skorupska"} role={'typesetting master'}/>
                 <StandardEditor image={OldEditor18} name={"Stanisław"} surname={"Klarecki"} role={'koordynator ds. social mediów'}/>
             </div>
-            <div className={'flex justify-center gap-4 flex-wrap margin'}>
+            <div className={'flex justify-center gap-4 flex-wrap'}>
                 <StandardEditor image={OldEditor2} name={"Alicja"} surname={"Nowak"}/>
                 <StandardEditor image={OldEditor3} name={"Amelia"} surname={"Bilińska"}/>
                 <StandardEditor image={OldEditor4} name={"Amelia"} surname={"Skrzypczak"}/>
