@@ -106,6 +106,12 @@ export default function NavBar(props: { logged: boolean, logout: () => void }) {
                                                     LIFESTYLE
                                                 </button>
                                             </Link>
+
+                                            <Link to={'/teksty/BIDON'} >
+                                                <button className={'hover-text'}>
+                                                    BIDON
+                                                </button>
+                                            </Link>
                                         </div>
                                     </div>
                                 </div>
