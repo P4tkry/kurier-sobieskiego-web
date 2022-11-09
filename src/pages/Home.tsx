@@ -39,8 +39,8 @@ export default function Home(){
                         Piszemy o modzie i ochronie środowiska.<br />
                         Przedstawiamy aktualne wydarzenia społeczne i polityczne z nowego punktu widzenia.<br />
                         Rozmawiamy z oryginalnymi i ciekawymi ludźmi.<br />
-                        Wszystko to dzięki młodzieży posiadających pasję do pisania.<br />
-                        Niezmiennie dla was, od października 2019 roku.<br />
+                        Wszystko to dzięki młodzieży posiadającej pasję do pisania.<br />
+                        Niezmiennie dla was - od października 2019 roku.<br />
                     </p>
                 </div>
             </div>
