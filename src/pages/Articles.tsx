@@ -12,7 +12,7 @@ export default function Articles() {
     const [loadingArticles, setLoadingArticles] = useState<boolean>(false);
 
     async function getArticles() {
-        const response = await api.get(`articles?page=${paging.page}&count=5&sortByDate=1${type !== 'wszystkie' ? `&hasTag=${type}` : ''}`);
+        const response = await api.get(`articles?page=${paging.page}&count=5&sortByDate=-1${type !== 'wszystkie' ? `&hasTag=${type}` : ''}`);
         if (!response.ok)
             return
         const responseJSON = await response.json();
