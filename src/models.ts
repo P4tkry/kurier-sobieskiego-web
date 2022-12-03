@@ -5,5 +5,6 @@ export interface IArticle{
     tags: string[];
     thumbnail: string;
     author: string;
+    draft: boolean;
     _id: string;
 }

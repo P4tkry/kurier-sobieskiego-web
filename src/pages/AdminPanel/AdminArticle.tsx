@@ -18,22 +18,26 @@ export default function AdminArticle(props: { article: IArticle, index: number, 
 
     return (
         <div
-            className={`flex flex-wrap bg-neutral-800 sm:flex-nowrap w-full hover:shadow-neutral-800 hover:shadow-lg rounded`}
+            className={`flex flex-wrap bg-neutral-800 sm:flex-nowrap w-full hover:shadow-neutral-800 hover:shadow-lg rounded ${props.article.draft && 'border border-sky-500'}`}
             key={`article-${props.index}`}>
             <img src={props.article.thumbnail} className={'object-cover h-[250px] w-[350px] rounded-l '}/>
             <div className={' py-3 px-4 border-r border-t border-b border-neutral-700 rounded-r flex flex-col w-full'}>
-                <p className={'font-ropa-sans text-sm mb-1 text-neutral-300'}>
+                <p className={'font-ropa-sans text-sm mb-1 text-neutral-300 flex'}>
                     {
                         props.article.author
                     }
-                    {
-                        ", "
-                    }
+                    ,&nbsp;
                     <span className={'text-neutral-400'}>
                         {
                             dateFormatter(new Date(parseInt(props.article._id.substring(0, 8), 16) * 1000))
                         }
                     </span>
+                    {
+                        props.article.draft && <p className={'ml-auto text-sky-500 text-base'}>
+                        wersja robocza
+                        </p>
+                    }
+
                 </p>
 
                 <h3 className={'text-3xl cursor-pointer mb-1 uppercase'}>
