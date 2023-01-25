@@ -104,7 +104,7 @@ export default function Articles() {
                     </div> :
                     articles.map((article, index) => {
                         return (
-                            <ArticleBox article={article} index={index} className={'my-4'}/>
+                            <ArticleBox article={article} index={index} className={'my-4'} key={`${article._id}-${index}`}/>
                         )
                     })
             }

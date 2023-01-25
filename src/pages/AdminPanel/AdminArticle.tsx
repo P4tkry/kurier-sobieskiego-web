@@ -19,7 +19,7 @@ export default function AdminArticle(props: { article: IArticle, index: number, 
     return (
         <div
             className={`flex flex-wrap bg-neutral-800 sm:flex-nowrap w-full hover:shadow-neutral-800 hover:shadow-lg rounded ${props.article.draft && 'border border-sky-500'}`}
-            key={`article-${props.index}`}>
+            key={`article-${props.index}-${props.article._id}`}>
             <img src={props.article.thumbnail} className={'object-cover h-[250px] w-[350px] rounded-l '}/>
             <div className={' py-3 px-4 border-r border-t border-b border-neutral-700 rounded-r flex flex-col w-full'}>
                 <p className={'font-ropa-sans text-sm mb-1 text-neutral-300 flex'}>

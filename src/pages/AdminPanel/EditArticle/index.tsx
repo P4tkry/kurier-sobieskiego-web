@@ -12,8 +12,9 @@ import * as Yup from 'yup';
 
 export default function EditArticle(props: { type: 'create' | 'edit' }) {
     let {id} = useParams();
-    const [article, setArticle] = useState<IArticle| undefined | 'create'>(props.type==='create'?'create':undefined);
+    const [article, setArticle] = useState<IArticle | undefined | 'create'>(props.type === 'create' ? 'create' : undefined);
     const navigate = useNavigate();
+
     async function getArticle() {
         const response = await api.get(`articles/${id}`);
         if (response.ok) {
@@ -32,71 +33,79 @@ export default function EditArticle(props: { type: 'create' | 'edit' }) {
         <div className={'margin py-5 flex flex-col items-center'}>
             {
                 article !== undefined && <Formik
-                validationSchema={Yup.object({
-                    title: Yup.string().required('Wypełnij to pole'),
-                    content: Yup.string().required('Wypełnij to pole'),
-                    author: Yup.string().required('Wypełnij to pole'),
-                })}
+                    validationSchema={Yup.object({
+                        title: Yup.string().required('Wypełnij to pole'),
+                        content: Yup.string().required('Wypełnij to pole'),
+                        author: Yup.string().required('Wypełnij to pole'),
+                    })}
                     initialValues={
-                    props.type === 'edit' && article !== 'create' ? {
-                        author: article?.author,
-                        content: article?.content,
-                        tags: article?.tags,
-                        description: article?.description,
-                        title: article?.title,
-                        thumbnail: article?.thumbnail,
-                        draft: article?.draft,
-                    } : {
-                        author: '',
-                        content: '',
-                        description: '',
-                        tags: [],
-                        title: '',
-                        thumbnail: '',
-                        draft: true
+                        props.type === 'edit' && article !== 'create' ? {
+                            author: article?.author,
+                            content: article?.content,
+                            tags: article?.tags,
+                            description: article?.description,
+                            title: article?.title,
+                            thumbnail: article?.thumbnail,
+                            draft: article?.draft,
+                            thumbnailURL: article?.thumbnail
+                        } : {
+                            author: '',
+                            content: '',
+                            description: '',
+                            tags: [],
+                            title: '',
+                            thumbnail: '',
+                            draft: true,
+                            thumbnailURL: ''
+                        }
+                    } onSubmit={async (values, formikHelpers) => {
+                    if (!values.thumbnail) {
+                        if (!values.thumbnailURL)
+                            return formikHelpers.setFieldError('thumbnail', 'Musisz podać zdjęcie');
+                        formikHelpers.setFieldValue('thumbnail', values.thumbnailURL);
+                        values.thumbnail = values.thumbnailURL
                     }
-                } onSubmit={async (values, formikHelpers) => {
-                        if (!values.thumbnail)
-                            return formikHelpers.setFieldError('image', 'Musisz podać zdjęcie');
-                        let image;
-                        if (typeof values.thumbnail !== 'string') {
-                            const formData = new FormData();
-                            formData.append('file', values.thumbnail);
-                            const response = await api.post('files', {
-                                body: formData,
-                                headers: {
-                                    "type": "multipart/form-data"
-                                }
-                            });
-                            if(!response.ok)
-                                return
-                            const responseJSON = await response.json();
-                            image = config.backendURL+'/files/'+responseJSON.name;
-                        } else {
-                            image = values.thumbnail;
-                        }
-                        let news = {
-                            title: values.title,
-                            content: values.content,
-                            thumbnail: image,
-                            author: values.author,
-                            tags: values.tags,
-                            description: values.description,
-                            draft: values.draft
-                        };
+                    let image;
+                    if (typeof values.thumbnail !== 'string') {
+                        const formData = new FormData();
+                        formData.append('file', values.thumbnail);
+                        const response = await api.post('files', {
+                            body: formData,
+                            headers: {
+                                "type": "multipart/form-data"
+                            }
+                        });
+                        if (!response.ok)
+                            return
+                        const responseJSON = await response.json();
+                        image = config.backendURL + '/files/' + responseJSON.name;
+                    } else {
+                        image = values.thumbnail;
+                    }
+                    let news = {
+                        title: values.title,
+                        content: values.content,
+                        thumbnail: image,
+                        author: values.author,
+                        tags: values.tags,
+                        description: values.description,
+                        draft: values.draft
+                    };
+                    console.log(news);
 
-                        if(props.type === 'edit' && article !== 'create'){
-                            const response = await api.patch(`articles/${article?._id}`, {body: JSON.stringify(news)});
-                            if(response.ok)
-                                return navigate('/adminPanel')
-                        }else{
-                            const response = await api.post(`articles`, {body: JSON.stringify(news)});
-                            if(response.ok)
-                                return navigate('/adminPanel')
-                        }
+                    if (props.type === 'edit' && article !== 'create') {
+                        const response = await api.patch(`articles/${article?._id}`, {body: JSON.stringify(news)});
+                        if (response.ok)
+                            return navigate('/adminPanel')
+                    } else {
+                        const response = await api.post(`articles`, {body: JSON.stringify(news)});
+                        if (response.ok)
+                            return navigate('/adminPanel')
+                    }
 
 
-                }}>
+                }
+                }>
                     {
                         fProps => (
                             <Form className={'flex items-center flex-col gap-4'}>
@@ -125,15 +134,23 @@ export default function EditArticle(props: { type: 'create' | 'edit' }) {
 
                                 </div>
 
-                                <FileUpload name={'thumbnail'} formik={fProps} labelText={'miniaturka'} imgClass={'w-[250px] h-[150px]'}/>
+                                <FileUpload name={'thumbnail'} formik={fProps} labelText={'miniaturka'}
+                                            imgClass={'w-[250px] h-[150px]'}/>
+
+                                <div className={'w-2/3 sm:w-1/2 '}>
+                                    <label>
+                                        Miniaturka
+                                    </label>
+                                    <Input type={'text'} name={'thumbnailURL'} formik={fProps} placeholder={'miniaturka'}/>
+                                </div>
 
                                 <div>
                                     <p className={'text-center mb-1'}>
                                         Tagi
                                     </p>
-                                <Tags tags={fProps.values.tags} setTags={(tags)=>{
-                                    fProps.setFieldValue('tags', tags);
-                                }} />
+                                    <Tags tags={fProps.values.tags} setTags={(tags) => {
+                                        fProps.setFieldValue('tags', tags);
+                                    }}/>
                                 </div>
 
                                 <div>
@@ -142,13 +159,13 @@ export default function EditArticle(props: { type: 'create' | 'edit' }) {
                                         <Editor
 
                                             initialValue={fProps.initialValues.content}
-                                            tinymceScriptSrc={`${window.location.protocol + "//"+ window.location.host}/tinymce/tinymce.min.js`}
+                                            tinymceScriptSrc={`${window.location.protocol + "//" + window.location.host}/tinymce/tinymce.min.js`}
 
                                             onEditorChange={(value) => {
                                                 fProps.setFieldValue('content', value);
                                             }}
                                             init={{
-                                                images_upload_handler: async (blobInfo, progress)=>{
+                                                images_upload_handler: async (blobInfo, progress) => {
                                                     const formData = new FormData();
                                                     formData.append('file', blobInfo.blob());
                                                     const response = await api.post('files', {
@@ -157,10 +174,10 @@ export default function EditArticle(props: { type: 'create' | 'edit' }) {
                                                             "type": "multipart/form-data"
                                                         }
                                                     });
-                                                    if(!response.ok)
+                                                    if (!response.ok)
                                                         return ''
                                                     const responseJSON = await response.json();
-                                                    return `${config.backendURL}/files/`+responseJSON.name;
+                                                    return `${config.backendURL}/files/` + responseJSON.name;
                                                 },
                                                 height: 700,
                                                 images_file_types: 'jpg,svg,png',

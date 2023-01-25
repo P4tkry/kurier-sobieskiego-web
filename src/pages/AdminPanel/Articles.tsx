@@ -47,7 +47,7 @@ export default function Articles(){
             </div>
             {
                 articles.map((article, index) => {
-                    return <AdminArticle article={article} index={index} reFetchArticles={getArticles} />
+                    return <AdminArticle article={article} index={index} reFetchArticles={getArticles} key={`${article._id}-${index}`} />
                 })
             }
         </div>
